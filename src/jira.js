@@ -500,6 +500,31 @@ export default class JiraApi {
     }));
   }
 
+  /** Get all users in group on Jira
+   * @name getGroups
+   * @function
+   * @param {string} query - a String to match groups agains
+   * @param {string} [exclude] - a string to exclude results against
+   * @property {integer} [startAt=0] - The index of the first user to return (0-based)
+   * @param {integer} [maxResults=50] - The maximum number of groups to return (defaults to 50).
+   * @param {string} [userName] - a string to restrict to groups for a user
+   */
+  getGroups(query, exclude, startAt = 0, maxResults = 50, userName) {
+    return this.doRequest(
+      this.makeRequestHeader(this.makeUri({
+        pathname: '/groups/picker',
+        query: {
+          query,
+          exclude,
+          userName,
+          expand: `groups[${startAt}:${maxResults}]`,
+        },
+      }), {
+        followAllRedirects: true,
+      })
+    );
+  }
+
   /**
    * @typedef SearchUserOptions
    * @type {object}

@@ -1,3 +1,8 @@
+# Truefit's Fork
+A list of what we have changed:
+
+* Add findGroups method
+
 # JavaScript JIRA API for node.js #
 
 A node.js module, which provides an object oriented wrapper for the Jira Rest API.
