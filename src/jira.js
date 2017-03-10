@@ -305,9 +305,9 @@ export default class JiraApi {
    * @function
    * @param {string} rapidViewId - the id for the rapid view
    */
-  listSprints(rapidViewId) {
+  listSprints(rapidViewId, includeFutureSprints = false, includeHistoricSprints = false) {
     return this.doRequest(this.makeRequestHeader(this.makeSprintQueryUri({
-      pathname: `/sprintquery/${rapidViewId}`,
+      pathname: `/sprintquery/${rapidViewId}?includeFutureSprints=${includeFutureSprints}&includeHistoricSprints=${includeHistoricSprints}`, // eslint-disable-line
     })));
   }
 

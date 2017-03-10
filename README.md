@@ -1,7 +1,9 @@
 # Truefit's Fork
 A list of what we have changed:
 
+* change start file to be src/jira so a project can reference via github and not npm (this does require that the project use babel)
 * Add findGroups method
+* Add includeFutureSprints and includeHistoricSprints on listSprints method
 
 # JavaScript JIRA API for node.js #
 
