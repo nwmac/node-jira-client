@@ -17,7 +17,7 @@
   "engine": {
     "node": ">=4.2.2"
   },
-  "main": "./src/jira.js",
+  "main": "./lib/jira.js",
   "files": [
     "lib",
     "docs",
@@ -40,7 +40,8 @@
     "lint": "eslint ./",
     "test": "npm run lint && mocha && npm run docs-build",
     "prepublish": "npm run build && npm run docs-build",
-    "release": "release"
+    "release": "release",
+    "preinstall": "npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
