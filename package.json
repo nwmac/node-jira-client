@@ -1,18 +1,12 @@
 {
-  "name": "jira-client",
+  "name": "truefit-jira-client",
   "version": "5.0.1",
-  "description": "Wrapper for the JIRA API",
-  "author": "Steven Surowiec <steven.surowiec@gmail.com>",
-  "contributors": [
-    "Chris Moultrie <chris@moultrie.org>",
-    "Lucas Vogelsang <l@lucasvo.com>",
-    "Matt Smith <mtscout6+node-jira@gmail.com>",
-    "Anson Wayman <kanoyugoro+node-jira@gmail.com>"
-  ],
-  "homepage": "http://github.com/jira-node/node-jira-client",
+  "description": "Wrapper for the JIRA API - forked by Truefit from node-jira-client",
+  "author": "Truefit",
+  "homepage": "https://github.com/TrueFit/node-jira-client",
   "repository": {
     "type": "git",
-    "url": "http://github.com/jira-node/node-jira-client"
+    "url": "https://github.com/TrueFit/node-jira-client"
   },
   "engine": {
     "node": ">=4.2.2"
@@ -61,9 +55,4 @@
     "mocha": "^2.3.4",
     "release-script": "^1.0.1"
   },
-  "release-script": {
-    "docsRepo": "git@github.com:jira-node/jira-node.github.io.git",
-    "docsRoot": "docs/",
-    "tmpDocsRepo": "tmp-docs-repo"
-  }
 }
