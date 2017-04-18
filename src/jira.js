@@ -24,6 +24,7 @@ export default class JiraApi {
     this.request = options.request || request;
     this.webhookVersion = options.webHookVersion || '1.0';
     this.greenhopperVersion = options.greenhopperVersion || '1.0';
+    this.tempoVersion = options.tempoVersion || '3';
     this.baseOptions = {};
 
     if (options.oauth && options.oauth.consumer_key && options.oauth.access_token) {
@@ -159,6 +160,23 @@ export default class JiraApi {
       hostname: this.host,
       port: this.port,
       pathname: `${this.base}/rest/greenhopper/${this.greenhopperVersion}${pathname}`,
+      query,
+    });
+    return decodeURIComponent(uri);
+  }
+
+  /**
+   * @name makeTempoQueryUri
+   * @function
+   * Creates a URI object for a given pathName
+   * @param {string} pathname - The url after the /rest/tempo-timesheets
+   */
+  makeTempoQueryUri({ pathname, query }) {
+    const uri = url.format({
+      protocol: this.protocol,
+      hostname: this.host,
+      port: this.port,
+      pathname: `${this.base}/rest/tempo-timesheets/${this.tempoVersion}${pathname}`,
       query,
     });
     return decodeURIComponent(uri);
@@ -304,6 +322,8 @@ export default class JiraApi {
    * @name listSprints
    * @function
    * @param {string} rapidViewId - the id for the rapid view
+   * @param {boolean} includeFutureSprints - include sprints marked as future
+   * @param {boolean} includeHistoricSprints - the sprints marked as historic
    */
   listSprints(rapidViewId, includeFutureSprints = false, includeHistoricSprints = false) {
     return this.doRequest(this.makeRequestHeader(this.makeSprintQueryUri({
@@ -919,6 +939,36 @@ export default class JiraApi {
   listStatus() {
     return this.doRequest(this.makeRequestHeader(this.makeUri({
       pathname: '/status',
+    })));
+  }
+
+  /** Get list of worklogs from tempo for a user
+   * [Jira Doc](http://tempo.io/doc/timesheets/api/rest/latest/#848933329)
+   * @name getTempoWorklogsForUser
+   * @function
+   * @param {string} username - user
+   * @param {string} dateFrom - date from
+   * @param {string} dateTo - date to
+   */
+  getTempoWorklogsForUser(username, dateFrom, dateTo) {
+    return this.doRequest(this.makeRequestHeader(this.makeTempoQueryUri({
+      pathname: '/worklogs',
+      query: { username, dateFrom, dateTo },
+    })));
+  }
+
+  /** Get list of worklogs from tempo for a team
+   * [Jira Doc](http://tempo.io/doc/timesheets/api/rest/latest/#848933329)
+   * @name getTempoWorklogsForTeam
+   * @function
+   * @param {string} teamId - teamId
+   * @param {string} dateFrom - date from
+   * @param {string} dateTo - date to
+   */
+  getTempoWorklogsForTeam(teamId, dateFrom, dateTo) {
+    return this.doRequest(this.makeRequestHeader(this.makeTempoQueryUri({
+      pathname: '/worklogs',
+      query: { teamId, dateFrom, dateTo },
     })));
   }
 }

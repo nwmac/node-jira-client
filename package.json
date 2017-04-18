@@ -1,6 +1,6 @@
 {
   "name": "truefit-jira-client",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Wrapper for the JIRA API - forked by Truefit from node-jira-client",
   "author": "Truefit",
   "homepage": "https://github.com/TrueFit/node-jira-client",
@@ -41,8 +41,7 @@
     "lint": "eslint ./",
     "test": "npm run lint && mocha && npm run docs-build",
     "prepublish": "npm run build && npm run docs-build",
-    "release": "release",
-    "preinstall": "npm run build"
+    "release": "release"
   },
   "devDependencies": {
     "chai": "^3.4.1",
