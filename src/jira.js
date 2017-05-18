@@ -499,6 +499,21 @@ export default class JiraApi {
     }));
   }
 
+  /** Get a Jira user
+   * [Jira Doc](https://docs.atlassian.com/jira/REST/cloud/#api/2/user-getUser)
+   * @name getUser
+   * @function
+   * @param {object} username - the username of this user
+   */
+  getUser(username) {
+    return this.doRequest(this.makeRequestHeader(this.makeUri({
+      pathname: '/user',
+      query: { username },
+    }), {
+      followAllRedirects: true,
+    }));
+  }
+
   /** Search user on Jira
    * [Jira Doc](http://docs.atlassian.com/jira/REST/latest/#d2e3756)
    * @name searchUsers

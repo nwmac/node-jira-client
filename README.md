@@ -1,10 +1,10 @@
 # Truefit's Fork
 A list of what we have changed:
 
-* Add pre-install script so we can reference this github repo
-* Add findGroups method
-* Add includeFutureSprints and includeHistoricSprints on listSprints method
+* Add findGroups function
+* Add includeFutureSprints and includeHistoricSprints on listSprints function
 * Get Tempo Worklog for user and date range
+* Add getUser function
 
 # JavaScript JIRA API for node.js #
 
