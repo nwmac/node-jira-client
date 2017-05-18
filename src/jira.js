@@ -508,7 +508,10 @@ export default class JiraApi {
   getUser(username) {
     return this.doRequest(this.makeRequestHeader(this.makeUri({
       pathname: '/user',
-      query: { username },
+      query: {
+        username,
+        expand: 'groups',
+      },
     }), {
       followAllRedirects: true,
     }));
