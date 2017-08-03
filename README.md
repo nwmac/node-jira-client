@@ -5,6 +5,7 @@ A list of what we have changed:
 * Add includeFutureSprints and includeHistoricSprints on listSprints function
 * Get Tempo Worklog for user and date range
 * Add getUser function
+* Add listWorklog function
 
 # JavaScript JIRA API for node.js #
 

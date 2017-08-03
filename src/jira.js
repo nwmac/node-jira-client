@@ -799,6 +799,18 @@ export default class JiraApi {
     }));
   }
 
+  /** List Worklogs attached to an issue
+   * [Jira Doc](http://docs.atlassian.com/jira/REST/latest/#id291617)
+   * @name listWorklogs
+   * @function
+   * @param {string} issueId - Issue to get the worklogs for
+   */
+  listWorklogs(issueId) {
+    return this.doRequest(this.makeRequestHeader(this.makeUri({
+      pathname: `/issue/${issueId}/worklog`,
+    })));
+  }
+
   /** Add a worklog to a project
    * [Jira Doc](http://docs.atlassian.com/jira/REST/latest/#id291617)
    * @name addWorklog
