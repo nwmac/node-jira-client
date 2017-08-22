@@ -1,6 +1,6 @@
 {
-  "name": "truefit-jira-client",
-  "version": "5.0.5",
+  "name": "nwm-jira-client",
+  "version": "5.1.0",
   "description": "Wrapper for the JIRA API - forked by Truefit from node-jira-client",
   "author": "Truefit",
   "homepage": "https://github.com/TrueFit/node-jira-client",
