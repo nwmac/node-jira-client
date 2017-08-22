@@ -22,7 +22,8 @@
     "lib",
     "docs",
     "LICENSE.md",
-    "README.md"
+    "README.md",
+    "lib/jira.js"
   ],
   "license": "MIT",
   "dependencies": {
